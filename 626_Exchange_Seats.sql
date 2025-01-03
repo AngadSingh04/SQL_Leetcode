@@ -12,4 +12,6 @@ select
     student
 from seat as stu
 order by id;
+
+-- completed 50 medium questions on leetcode :)
     
