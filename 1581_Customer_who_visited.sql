@@ -10,3 +10,5 @@ where visit_id not in (
     on visits.visit_id = transactions.visit_id
 )
 group by customer_id;
+
+--
