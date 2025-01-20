@@ -1,14 +1,14 @@
 -- Write your PostgreSQL query statement below
 select
     id
-from(
-select 
+from (
+select
     id,
-    recordDate,
+    recorddate,
     temperature,
-    lag(recorddate) over (order by recorddate) as previous_date,
-    lag(temperature) over (order by recordDate) as previous_temperature
+    lag(recorddate) over(order by recorddate) as previousdate,
+    lag(temperature) over() as previoustemp
 from weather
 )
-where temperature > previous_temperature and
-recorddate = previous_date + 1;
+where recorddate = 1 + previousdate
+and temperature > previoustemp;
