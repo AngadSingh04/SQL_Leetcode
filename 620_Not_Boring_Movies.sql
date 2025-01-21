@@ -1,5 +1,6 @@
 -- Write your PostgreSQL query statement below
-select *
+select
+    *
 from cinema
-where id % 2 != 0 and description != 'boring'
+where id%2 != 0 and description not like 'boring'
 order by rating desc;
