@@ -1,5 +1,8 @@
-select name,bonus
+-- Write your PostgreSQL query statement below
+select 
+    name,
+    bonus
 from employee
-full outer join bonus
-on employee.empid = bonus.empid
+left outer join bonus
+on bonus.empid=employee.empid
 where bonus < 1000 or bonus is null;
