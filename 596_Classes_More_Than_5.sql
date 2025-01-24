@@ -1,6 +1,6 @@
 -- Write your PostgreSQL query statement below
-select class
+select
+    class
 from courses
 group by class
-having count(class) >= 5
-order by count(class) desc;
+having count(*) >= 5;
