@@ -1,16 +1,16 @@
 -- Write your PostgreSQL query statement below
-select distinct(num) as consecutivenums
-from (
-select
+with cte1 as (select
     id,
-    num,
-    num2,
-    lag(num2) over(order by id) as num3
-from (
-select
+    lag(num) over(order by id) as num1
+from logs), cte2 as (select
     id,
-    num,
-    lag(num) over(order by id) as num2
+    lag(num1) over(order by id) as num2
+from cte1)
+select
+    distinct(num) as ConsecutiveNums
 from logs
-))
-where num=num2 and num2=num3;
+inner join cte1
+on logs.id=cte1.id 
+inner join cte2
+on logs.id=cte2.id
+where num=num1 and num1=num2
