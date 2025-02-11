@@ -1,13 +1,9 @@
--- Write your PostgreSQL query statement below
+# Write your MySQL query statement below
 select
     name
 from employee
-where id in (
-select
-    managerId
+where id in (select
+    managerid
 from employee
-group by managerId
-having count(*) >= 5
-);
-
---this was a medium question lol 
+group by managerid
+having count(*) >= 5);
